@@ -1,14 +1,16 @@
 package main
 
 import (
+	"AdventOfCode2018/FifthDay"
 	"AdventOfCode2018/FirstDay"
+	"AdventOfCode2018/FourthDay"
 	"AdventOfCode2018/SecondDay"
 	"AdventOfCode2018/ThirdDay"
 	"fmt"
 )
 
 func main() {
-	day := 3
+	day := 5
 
 	switch day {
 	case 1:
@@ -20,5 +22,10 @@ func main() {
 	case 3:
 		fmt.Println(ThirdDay.Overlap())
 		fmt.Println(ThirdDay.NoOverlap())
+	case 4:
+		fmt.Println(FourthDay.SleepTime())
+	case 5:
+		fmt.Println(FifthDay.Reduction())
+		fmt.Println(FifthDay.ShortestPolymer())
 	}
 }
