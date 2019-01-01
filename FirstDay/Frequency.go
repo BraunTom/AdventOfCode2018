@@ -41,7 +41,6 @@ func Twice() int {
 
 			sum += number
 
-			fmt.Println(sum)
 			if set[sum] {
 				return sum
 			}
