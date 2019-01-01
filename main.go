@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	day := 2
+	day := 3
 
 	switch day {
 	case 1:
@@ -19,5 +19,6 @@ func main() {
 		fmt.Println(SecondDay.OneApart())
 	case 3:
 		fmt.Println(ThirdDay.Overlap())
+		fmt.Println(ThirdDay.NoOverlap())
 	}
 }
