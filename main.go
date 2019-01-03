@@ -5,12 +5,13 @@ import (
 	"AdventOfCode2018/FirstDay"
 	"AdventOfCode2018/FourthDay"
 	"AdventOfCode2018/SecondDay"
+	"AdventOfCode2018/SeventhDay"
 	"AdventOfCode2018/ThirdDay"
 	"fmt"
 )
 
 func main() {
-	day := 5
+	day := 7
 
 	switch day {
 	case 1:
@@ -27,5 +28,9 @@ func main() {
 	case 5:
 		fmt.Println(FifthDay.Reduction())
 		fmt.Println(FifthDay.ShortestPolymer())
+	case 6:
+
+	case 7:
+		fmt.Println(SeventhDay.Order())
 	}
 }
