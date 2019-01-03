@@ -49,10 +49,10 @@ func ShortestPolymer() int {
 		shortenedPolymer := strings.Replace(data, string('a'+i), "", -1)
 		shortenedPolymer = strings.Replace(shortenedPolymer, string('A'+i), "", -1)
 
-		len := len(reduce(shortenedPolymer))
+		l := len(reduce(shortenedPolymer))
 
-		if len < min {
-			min = len
+		if l < min {
+			min = l
 		}
 	}
 

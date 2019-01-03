@@ -32,5 +32,6 @@ func main() {
 
 	case 7:
 		fmt.Println(SeventhDay.Order())
+		fmt.Println(SeventhDay.Duration())
 	}
 }
