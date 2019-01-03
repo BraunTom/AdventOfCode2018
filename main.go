@@ -6,12 +6,13 @@ import (
 	"AdventOfCode2018/FourthDay"
 	"AdventOfCode2018/SecondDay"
 	"AdventOfCode2018/SeventhDay"
+	"AdventOfCode2018/TenthDay"
 	"AdventOfCode2018/ThirdDay"
 	"fmt"
 )
 
 func main() {
-	day := 7
+	day := 10
 
 	switch day {
 	case 1:
@@ -33,5 +34,7 @@ func main() {
 	case 7:
 		fmt.Println(SeventhDay.Order())
 		fmt.Println(SeventhDay.Duration())
+	case 10:
+		TenthDay.Message()
 	}
 }
