@@ -1,6 +1,7 @@
 package main
 
 import (
+	"AdventOfCode2018/EleventhDay"
 	"AdventOfCode2018/FifthDay"
 	"AdventOfCode2018/FirstDay"
 	"AdventOfCode2018/FourthDay"
@@ -12,7 +13,7 @@ import (
 )
 
 func main() {
-	day := 10
+	day := 11
 
 	switch day {
 	case 1:
@@ -36,5 +37,9 @@ func main() {
 		fmt.Println(SeventhDay.Duration())
 	case 10:
 		TenthDay.Message()
+	case 11:
+		fmt.Println(EleventhDay.Coordinates())
+		fmt.Println(EleventhDay.CoordinatesAndSize())
 	}
+
 }
