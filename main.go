@@ -1,6 +1,7 @@
 package main
 
 import (
+	"AdventOfCode2018/EightDay"
 	"AdventOfCode2018/EleventhDay"
 	"AdventOfCode2018/FifthDay"
 	"AdventOfCode2018/FirstDay"
@@ -15,7 +16,7 @@ import (
 )
 
 func main() {
-	day := 4
+	day := 8
 
 	switch day {
 	case 1:
@@ -34,10 +35,13 @@ func main() {
 		fmt.Println(FifthDay.Reduction())
 		fmt.Println(FifthDay.ShortestPolymer())
 	case 6:
-
+		fmt.Println(EightDay.MetadataSum())
 	case 7:
 		fmt.Println(SeventhDay.Order())
 		fmt.Println(SeventhDay.Duration())
+	case 8:
+		fmt.Println(EightDay.MetadataSum())
+		fmt.Println(EightDay.RootNodeEntry())
 	case 10:
 		TenthDay.Message()
 	case 11:
