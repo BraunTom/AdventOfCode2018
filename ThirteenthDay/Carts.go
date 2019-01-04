@@ -11,11 +11,13 @@ func fileData() []string {
 	return strings.Split(string(input), "\n")
 }
 
-func Crash() point {
+func Crash() {
 	var simulation cartSimulation
 	simulation.init(fileData())
 
-	for !simulation.hasCrash() {
+	cartCount := len(simulation.carts)
+
+	for cartCount == len(simulation.carts) {
 		simulation.step()
 
 		/*
@@ -24,27 +26,19 @@ func Crash() point {
 			reader := bufio.NewReader(os.Stdin)
 			reader.ReadString('\n')//*/
 	}
-
-	return simulation.getCrash()
 }
 
-func LastOneAlive() point {
+func LastOneAlive() {
 	var simulation cartSimulation
 	simulation.init(fileData())
 
-	i := 0
 	for len(simulation.carts) > 1 {
 		simulation.step()
 
-		if simulation.hasCrash() {
-			fmt.Println(i)
-			simulation.removeCrashed()
-		}
-
-		i++
+		/*
+			simulation.print()
+			fmt.Println("//////////////////////////")*/
 	}
 
-	simulation.step()
-
-	return *simulation.carts[0].position
+	fmt.Println(*simulation.carts[0].position)
 }

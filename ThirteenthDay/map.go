@@ -43,24 +43,39 @@ func (cM *cartSimulation) moveCart(c *cart) {
 
 func (cM *cartSimulation) step() {
 	cM.sortCarts()
+	var toDelete []*cart
 	for _, v := range cM.carts {
 		cM.moveCart(v)
-		if cM.hasCrash() {
-			return
+		if b, otherCart := cM.hasCrash(v); b {
+			fmt.Println("Collision at:", *v.position)
+			toDelete = append(toDelete, v, otherCart)
 		}
 	}
-}
 
-func (cM *cartSimulation) hasCrash() bool {
-	for i := 0; i < len(cM.carts); i++ {
-		for k := i + 1; k < len(cM.carts); k++ {
-			if cM.carts[i].position.equals(*cM.carts[k].position) {
-				return true
+	var deleteIndexes []int
+	for _, v := range toDelete {
+		for k, c := range cM.carts {
+			if c == v {
+				deleteIndexes = append(deleteIndexes, k)
 			}
 		}
 	}
 
-	return false
+	sort.Ints(deleteIndexes)
+
+	for i := len(deleteIndexes) - 1; i >= 0; i-- {
+		cM.carts = append(cM.carts[:deleteIndexes[i]], cM.carts[deleteIndexes[i]+1:]...)
+	}
+}
+
+func (cM *cartSimulation) hasCrash(c *cart) (bool, *cart) {
+	for _, v := range cM.carts {
+		if c != v && c.position.equals(*v.position) {
+			return true, v
+		}
+	}
+
+	return false, nil
 }
 
 func order(x, y int) (int, int) {
@@ -109,7 +124,16 @@ func (cM *cartSimulation) print() {
 		for _, v := range v {
 			if v != nil {
 				if carts[v.position.x][v.position.y] != nil {
-					fmt.Print("#")
+					switch carts[v.position.x][v.position.y].dir {
+					case left:
+						fmt.Print("<")
+					case right:
+						fmt.Print(">")
+					case up:
+						fmt.Print("^")
+					case down:
+						fmt.Print("v")
+					}
 					continue
 				}
 

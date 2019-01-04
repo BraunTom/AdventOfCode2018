@@ -42,8 +42,8 @@ func main() {
 		fmt.Println(EleventhDay.Coordinates())
 		fmt.Println(EleventhDay.CoordinatesAndSize())
 	case 13:
-		fmt.Println(ThirteenthDay.Crash())
-		fmt.Println(ThirteenthDay.LastOneAlive())
+		ThirteenthDay.Crash()
+		ThirteenthDay.LastOneAlive()
 	}
 
 }
