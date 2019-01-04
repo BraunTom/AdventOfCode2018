@@ -9,11 +9,12 @@ import (
 	"AdventOfCode2018/SeventhDay"
 	"AdventOfCode2018/TenthDay"
 	"AdventOfCode2018/ThirdDay"
+	"AdventOfCode2018/ThirteenthDay"
 	"fmt"
 )
 
 func main() {
-	day := 11
+	day := 13
 
 	switch day {
 	case 1:
@@ -40,6 +41,9 @@ func main() {
 	case 11:
 		fmt.Println(EleventhDay.Coordinates())
 		fmt.Println(EleventhDay.CoordinatesAndSize())
+	case 13:
+		fmt.Println(ThirteenthDay.Crash())
+		fmt.Println(ThirteenthDay.LastOneAlive())
 	}
 
 }
