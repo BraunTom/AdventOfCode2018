@@ -4,6 +4,7 @@ import (
 	"AdventOfCode2018/EleventhDay"
 	"AdventOfCode2018/FifthDay"
 	"AdventOfCode2018/FirstDay"
+	"AdventOfCode2018/FourteenthDay"
 	"AdventOfCode2018/FourthDay"
 	"AdventOfCode2018/SecondDay"
 	"AdventOfCode2018/SeventhDay"
@@ -14,7 +15,7 @@ import (
 )
 
 func main() {
-	day := 13
+	day := 4
 
 	switch day {
 	case 1:
@@ -28,6 +29,7 @@ func main() {
 		fmt.Println(ThirdDay.NoOverlap())
 	case 4:
 		fmt.Println(FourthDay.SleepTime())
+		fmt.Println(FourthDay.SleepTimeStrategy2())
 	case 5:
 		fmt.Println(FifthDay.Reduction())
 		fmt.Println(FifthDay.ShortestPolymer())
@@ -44,6 +46,8 @@ func main() {
 	case 13:
 		ThirteenthDay.Crash()
 		ThirteenthDay.LastOneAlive()
+	case 14:
+		FourteenthDay.Score()
+		FourteenthDay.OtherInterpretation()
 	}
-
 }

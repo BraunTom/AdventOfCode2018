@@ -3,26 +3,31 @@ package FourthDay
 import (
 	"regexp"
 	"strconv"
-	"time"
 )
 
-type Entry struct {
+type entryType int
+
+const (
+	shift entryType = iota
+	asleep
+	wakeup
+)
+
+type entry struct {
 	month       int
 	day         int
 	hour        int
 	minute      int
 	description string
-
-	id int
 }
 
-type Entries []Entry
+type entries []entry
 
-func (e Entries) Len() int {
+func (e entries) Len() int {
 	return len(e)
 }
 
-func (e Entries) Less(i, j int) bool {
+func (e entries) Less(i, j int) bool {
 	if e[i].month < e[j].month {
 		return true
 	}
@@ -45,40 +50,31 @@ func (e Entries) Less(i, j int) bool {
 	return false
 }
 
-func (e Entries) Swap(i, j int) {
+func (e entries) Swap(i, j int) {
 	e[i], e[j] = e[j], e[i]
 }
 
-func (e Entry) Type() string {
+func (e entry) Type() entryType {
 	switch e.description[0] {
 	case 'G':
-		return "shift"
+		return shift
 	case 'f':
-		return "asleep"
+		return asleep
 	case 'w':
-		return "wakeup"
+		return wakeup
 	}
 
-	return "unknown"
+	panic("should not happen")
 }
 
-func (e Entry) unixTime() {
-	time.Date(2000, time.November, e.day, e.hour, e.minute, 0, 0, time.UTC).Unix()
-}
-
-func (e Entry) ID() int {
-	if e.id != 0 {
-		return e.id
-	}
-
+func (e entry) ID() int {
 	idRegex := regexp.MustCompile("#\\d* ")
 	id := idRegex.FindString(e.description)
 
 	result, _ := strconv.Atoi(id[1 : len(id)-1])
-	e.id = result
 	return result
 }
 
-func (e Entry) TimeDifference(secondEntry Entry) int {
+func (e entry) TimeDifference(secondEntry entry) int {
 	return 0
 }
