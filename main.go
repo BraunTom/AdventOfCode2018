@@ -14,11 +14,12 @@ import (
 	"AdventOfCode2018/TenthDay"
 	"AdventOfCode2018/ThirdDay"
 	"AdventOfCode2018/ThirteenthDay"
+	"AdventOfCode2018/TwentyFirstDay"
 	"fmt"
 )
 
 func main() {
-	day := 19
+	day := 21
 
 	switch day {
 	case 1:
@@ -61,5 +62,7 @@ func main() {
 	case 19:
 		NineteenthDay.Jumps()
 		NineteenthDay.JumpsFrom1()
+	case 21:
+		TwentyFirstDay.LowestInteger()
 	}
 }
