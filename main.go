@@ -9,6 +9,7 @@ import (
 	"AdventOfCode2018/FourthDay"
 	"AdventOfCode2018/SecondDay"
 	"AdventOfCode2018/SeventhDay"
+	"AdventOfCode2018/SixteenthDay"
 	"AdventOfCode2018/TenthDay"
 	"AdventOfCode2018/ThirdDay"
 	"AdventOfCode2018/ThirteenthDay"
@@ -16,7 +17,7 @@ import (
 )
 
 func main() {
-	day := 8
+	day := 16
 
 	switch day {
 	case 1:
@@ -53,5 +54,8 @@ func main() {
 	case 14:
 		FourteenthDay.Score()
 		FourteenthDay.OtherInterpretation()
+	case 16:
+		SixteenthDay.SameOpcodes()
+		SixteenthDay.ExecuteProgram()
 	}
 }
